@@ -1,7 +1,7 @@
 //Kam's Branch
 
+const apiUrl = 'http://localhost:3000/toons'
 let addToon = false;
-const apiUrl = 'https://api.sampleapis.com/cartoons/cartoons2D'
 
 document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector("#new-toon-btn");
@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
       //The POST Req.
 
-    //const apiUrl = 'https://api.sampleapis.com/cartoons/cartoons2D'
 
       fetch(apiUrl, {
         method: "POST",
@@ -36,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       //Render Card Right after Post Req by running the new json data
       .then (r => r.json())
-      .then (toy => renderCard(toy))
+      .then (toon => renderCard(toon))
     
     })
     } else {
@@ -73,7 +72,7 @@ function renderCard (toon){
 
   likesButton.addEventListener('click', () =>{
     toon['likes'] = toon['likes'] +1
-    fetch(`http://localhost:3000/toys/${toon.id}`, {
+    fetch(`http://localhost:3000/toons${toon.id}`, {
       method: "PATCH",
       headers: {
           "Content-Type": "application/json",
