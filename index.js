@@ -1,34 +1,34 @@
 //Kam's Branch
 
-let addToy = false;
+const toonDB = 'http://localhost:3000/toons'
+let addToon = false;
 
 document.addEventListener("DOMContentLoaded", () => {
-  const addBtn = document.querySelector("#new-toy-btn");
-  const toyFormContainer = document.querySelector(".container");
+  const addBtn = document.querySelector("#new-toon-btn");
+  const toonFormContainer = document.querySelector(".container");
   addBtn.addEventListener("click", () => {
     // hide & seek with the form
-    addToy = !addToy;
-    if (addToy) {
-      toyFormContainer.style.display = "block";
+    addToon = !addToon;
+    if (addToon) {
+      toonFormContainer.style.display = "block";
     
     // Add Toy Form Functionality w/ POST
-      document.querySelector('.add-toy-form').addEventListener('submit', (e) => {
+      document.querySelector('.add-toon-form').addEventListener('submit', (e) => {
       e.preventDefault()
       const newName = e.target.name.value
       const newImg = e.target.image.value
     
       //The POST Req.
 
-    const apiUrl = 'https://api.sampleapis.com/cartoons/cartoons2D'
 
-      fetch(apiUrl, {
+      fetch(toonDB, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
             Accept: "application/json"
           },
         body: JSON.stringify({
-            "name": newName,
+            "title": newName,
             "image": newImg,
             "likes": 0
           })
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  fetch(apiUrl)
+  fetch(toonDB)
   .then (r => r.json())
   .then (toons => toons.forEach(toon => renderCard(toon)))
 
@@ -55,18 +55,17 @@ function renderCard (toon){
   const toonCollection = document.getElementById('toon-collection')
   const cardDiv = document.createElement('div')
   cardDiv.className = 'card'
-  const toyName = document.createElement('h2')
-  toyName.textContent = toon['name']
+  const toonName = document.createElement('h2')
+  toonName.textContent = toon['title']
   const img = document.createElement('img')
-  img.src = toy['image']
-  img.className = 'toy-avatar'
+  img.src = toon['image']
   const likeCount = document.createElement('p')
-  likeCount.textContent = toy['likes']
+  likeCount.textContent = toon['likes']
   const likesButton = document.createElement('button')
   likesButton.className = 'like-btn'
-  likesButton.id = toy['id']
-  cardDiv.append (toyName, img, likeCount, likesButton)
-  toyCollection.append (cardDiv)
+  likesButton.id = toon['id']
+  cardDiv.append (toonName, img, likeCount, likesButton)
+  toonCollection.append (cardDiv)
   
 // Adding Like button functionality
 
