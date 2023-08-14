@@ -1,5 +1,6 @@
 //Kam's Branch
 
+const apiUrl = 'https://api.sampleapis.com/cartoons/cartoons2D'
 let addToy = false;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -19,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
       //The POST Req.
 
-    const apiUrl = 'https://api.sampleapis.com/cartoons/cartoons2D'
 
       fetch(apiUrl, {
         method: "POST",
