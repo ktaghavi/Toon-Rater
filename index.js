@@ -1,25 +1,26 @@
 //Kam's Branch
 
-let addToy = false;
+let addToon = false;
+const apiUrl = 'https://api.sampleapis.com/cartoons/cartoons2D'
 
 document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector("#new-toon-btn");
   const toonFormContainer = document.querySelector(".container");
   addBtn.addEventListener("click", () => {
     // hide & seek with the form
-    addToy = !addToy;
-    if (addToy) {
-      toyFormContainer.style.display = "block";
+    addToon = !addToon;
+    if (addToon) {
+      toonFormContainer.style.display = "block";
     
-    // Add Toy Form Functionality w/ POST
-      document.querySelector('.add-toy-form').addEventListener('submit', (e) => {
+    // Add Toon Form Functionality w/ POST
+      document.querySelector('.add-toon-form').addEventListener('submit', (e) => {
       e.preventDefault()
       const newName = e.target.name.value
       const newImg = e.target.image.value
     
       //The POST Req.
 
-    const apiUrl = 'https://api.sampleapis.com/cartoons/cartoons2D'
+    //const apiUrl = 'https://api.sampleapis.com/cartoons/cartoons2D'
 
       fetch(apiUrl, {
         method: "POST",
@@ -39,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     })
     } else {
-      toyFormContainer.style.display = "none";
+      toonFormContainer.style.display = "none";
     }
   });
 
@@ -55,34 +56,34 @@ function renderCard (toon){
   const toonCollection = document.getElementById('toon-collection')
   const cardDiv = document.createElement('div')
   cardDiv.className = 'card'
-  const toyName = document.createElement('h2')
-  toyName.textContent = toon['name']
+  const toonName = document.createElement('h2')
+  toonName.textContent = toon['name']
   const img = document.createElement('img')
-  img.src = toy['image']
-  img.className = 'toy-avatar'
+  img.src = toon['image']
+  img.className = 'toon-avatar'
   const likeCount = document.createElement('p')
-  likeCount.textContent = toy['likes']
+  likeCount.textContent = toon['likes']
   const likesButton = document.createElement('button')
   likesButton.className = 'like-btn'
-  likesButton.id = toy['id']
-  cardDiv.append (toyName, img, likeCount, likesButton)
-  toyCollection.append (cardDiv)
+  likesButton.id = toon['id']
+  cardDiv.append (toonName, img, likeCount, likesButton)
+  toonCollection.append (cardDiv)
   
 // Adding Like button functionality
 
   likesButton.addEventListener('click', () =>{
-    toy['likes'] = toy['likes'] +1
-    fetch(`http://localhost:3000/toys/${toy.id}`, {
+    toon['likes'] = toon['likes'] +1
+    fetch(`http://localhost:3000/toys/${toon.id}`, {
       method: "PATCH",
       headers: {
           "Content-Type": "application/json",
           "Accept": "application/json"
         },
-      body: JSON.stringify(toy)
+      body: JSON.stringify(toon)
       })
       //Render Card Right after Post Req by running the new json data
 
       .then (r => r.json())
-      .then (likeCount.textContent = toy['likes'])
+      .then (likeCount.textContent = toon['likes'])
     })
 }
