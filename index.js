@@ -63,7 +63,7 @@ function renderCard (toon){
   likeCount.textContent = toon['likes']
   const likesButton = document.createElement('button')
   likesButton.className = 'like-btn'
-  likesButton.id = toon['id']
+  likesButton.id = toon['likes']
   cardDiv.append (toonName, img, likeCount, likesButton)
   toonCollection.append (cardDiv)
   
