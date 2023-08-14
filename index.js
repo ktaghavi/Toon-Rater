@@ -1,6 +1,6 @@
 //Kam's Branch
 
-const apiUrl = 'http://localhost:3000/toons'
+const toonDB = 'http://localhost:3000/toons'
 let addToon = false;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (addToon) {
       toonFormContainer.style.display = "block";
     
-    // Add Toon Form Functionality w/ POST
+    // Add Toy Form Functionality w/ POST
       document.querySelector('.add-toon-form').addEventListener('submit', (e) => {
       e.preventDefault()
       const newName = e.target.name.value
@@ -21,14 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
       //The POST Req.
 
 
-      fetch(apiUrl, {
+      fetch(toonDB, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
             Accept: "application/json"
           },
         body: JSON.stringify({
-            "name": newName,
+            "title": newName,
             "image": newImg,
             "likes": 0
           })
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  fetch(apiUrl)
+  fetch(toonDB)
   .then (r => r.json())
   .then (toons => toons.forEach(toon => renderCard(toon)))
 
@@ -56,10 +56,9 @@ function renderCard (toon){
   const cardDiv = document.createElement('div')
   cardDiv.className = 'card'
   const toonName = document.createElement('h2')
-  toonName.textContent = toon['name']
+  toonName.textContent = toon['title']
   const img = document.createElement('img')
   img.src = toon['image']
-  img.className = 'toon-avatar'
   const likeCount = document.createElement('p')
   likeCount.textContent = toon['likes']
   const likesButton = document.createElement('button')
