@@ -84,4 +84,6 @@ function renderCard (toon){
       .then (r => r.json())
       .then (likeCount.textContent = toon['likes'])
     })
+    
+
 }
