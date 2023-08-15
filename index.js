@@ -62,6 +62,7 @@ function renderCard (toon){
   const likeCount = document.createElement('p')
   likeCount.textContent = toon['likes']
   const likesButton = document.createElement('button')
+  likesButton.textContent = "Vote"
   likesButton.className = 'like-btn'
   likesButton.id = toon['likes']
   cardDiv.append (toonName, img, likeCount, likesButton)
@@ -71,7 +72,7 @@ function renderCard (toon){
 
   likesButton.addEventListener('click', () =>{
     toon['likes'] = toon['likes'] +1
-    fetch(`http://localhost:3000/toons${toon.id}`, {
+    fetch(`http://localhost:3000/toons/${toon.id}`, {
       method: "PATCH",
       headers: {
           "Content-Type": "application/json",
