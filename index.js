@@ -35,11 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       //Render Card Right after Post Req by running the new json data
       .then (r => r.json())
-      .then (toy => renderCard(toy))
+      .then (toon => renderCard(toon))
     
     })
     } else {
-      toyFormContainer.style.display = "none";
+      toonFormContainer.style.display = "none";
     }
   });
 
@@ -62,6 +62,7 @@ function renderCard (toon){
   const likeCount = document.createElement('p')
   likeCount.textContent = toon['likes']
   const likesButton = document.createElement('button')
+  likesButton.textContent = "Vote"
   likesButton.className = 'like-btn'
   likesButton.id = toon['id']
   cardDiv.append (toonName, img, likeCount, likesButton)
@@ -70,18 +71,18 @@ function renderCard (toon){
 // Adding Like button functionality
 
   likesButton.addEventListener('click', () =>{
-    toy['likes'] = toy['likes'] +1
-    fetch(`http://localhost:3000/toys/${toy.id}`, {
+    toon['likes'] = toon['likes'] +1
+    fetch(`http://localhost:3000/toons/${toon.id}`, {
       method: "PATCH",
       headers: {
           "Content-Type": "application/json",
           "Accept": "application/json"
         },
-      body: JSON.stringify(toy)
+      body: JSON.stringify(toon)
       })
       //Render Card Right after Post Req by running the new json data
 
       .then (r => r.json())
-      .then (likeCount.textContent = toy['likes'])
+      .then (likeCount.textContent = toon['likes'])
     })
 }
