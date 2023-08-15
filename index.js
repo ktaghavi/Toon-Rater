@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault()
       const newName = e.target.name.value
       const newImg = e.target.image.value
+      const newNetwork = e.target.network.value
     
       //The POST Req.
 
@@ -31,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
           },
         body: JSON.stringify({
             "title": newName,
+            "network": newNetwork,
             "image": newImg,
             "likes": 0
           })
@@ -63,6 +65,7 @@ function renderCard (toon){
   toonName.textContent = toon['title']
   const img = document.createElement('img')
   img.src = toon['image']
+  img.className = 'cardImg'
   const likeCount = document.createElement('p')
   likeCount.textContent = toon['likes']
   const likesButton = document.createElement('button')
@@ -99,10 +102,12 @@ function renderCard (toon){
 const cnButton = document.getElementById('cartoon-network');
 const nickelodeonButton = document.getElementById('nickelodeon');
 const disneyButton = document.getElementById('disney');
+const otherButton = document.getElementById('other');
 
 cnButton.addEventListener('click', () => filterToonsByNetwork("Cartoon Network"));
 nickelodeonButton.addEventListener('click', () => filterToonsByNetwork("Nickelodeon"));
 disneyButton.addEventListener('click', () => filterToonsByNetwork("Disney"));
+otherButton.addEventListener('click', () => filterToonsByNetwork("Other"));
 
 function filterToonsByNetwork(network) {
   const toonCollection = document.getElementById('toon-collection');

@@ -12,10 +12,10 @@ body {
     padding: 1rem;
   }
   
-  #toon-header img {
+  /* #toon-header img {
     height: 6rem;
     width: auto;
-  }
+  } */
   
   #toy-collection {
     margin: 2rem;
@@ -98,7 +98,16 @@ body {
     margin: 3px;
   }  
 
-  img {
+  .logo1{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 12vw;
+    height: 18vh;
+    border-radius: 50px;
+  }
+
+  .cardImg {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -108,8 +117,13 @@ body {
 
   .network-buttons{
     display: block;
-    margin-left: auto;
-    margin-right:auto;
+    margin: auto;
+    padding: auto;
     width:auto;
     height:auto;
+  }
+ 
+  .network-buttons img {
+    max-width: 15vw;
+    max-height: 15vh;
   }
