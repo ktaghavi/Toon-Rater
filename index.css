@@ -105,3 +105,11 @@ body {
     width: 75%;
     height: 75%
   }
+
+  .network-buttons{
+    display: block;
+    margin-left: auto;
+    margin-right:auto;
+    width:auto;
+    height:auto;
+  }
