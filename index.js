@@ -119,22 +119,4 @@ function filterToonsByNetwork(network) {
       const filteredToons = toons.filter(toon => toon.network === network);
       filteredToons.forEach(toon => renderCard(toon));
     });
-}
-
-//create if/else statement to append networks to buttons
-
-
-// function buttons()
-//   const toonHead = document.querySelector('#toon-header')
-//   const cartoonNetwork = document.createElement('button', "img")
-//   cartoonNetwork.textContent = "Cartoon Network"
-//   const nickelodeon = document.createElement('button', "img")
-//   nickelodeon.textContent = "Nickelodeon"
-//   const disney = document.createElement('button', "img")
-//   disney.textContent = "Disney"
-//   const networks = document.createElement('div')
-//   // const allToons = [cartoonNetwork,nickelodeon,disney]
-//   networks.append(cartoonNetwork,nickelodeon,disney)
-//   toonHead.appendChild(networks)
-// }
-// buttons()
+};
