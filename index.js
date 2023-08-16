@@ -11,8 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
     addToon = !addToon;
     if (addToon) {
       toonFormContainer.style.display = "block";
-
-      
     
     // Add Toy Form Functionality w/ POST
       document.querySelector('.add-toon-form').addEventListener('submit', (e) => {
@@ -47,12 +45,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-
+    //Add Leaderboard (Top 3 Toons!)
   fetch(toonDB)
-  .then (r => r.json())
-  .then (toons => toons.forEach(toon => renderCard(toon)))
-  console.log
+  .then(r => r.json())
+  .then(toons => {
+    // Sort toons in descending order based on likes
+    toons.sort((a, b) => b.likes - a.likes);
 
+    // Select the top 3 toons
+    const top3Toons = toons.slice(0, 3);
+
+    // Render leaderboard cards for the top 3 toons
+    top3Toons.forEach(toon => renderCard(toon));
+    console.log(top3Toons)    
+  });
 });
 
 //Make Card for Each Toy
@@ -98,16 +104,36 @@ function renderCard (toon){
     
 
 }
-
+const logoHome = document.getElementById('logo')
 const cnButton = document.getElementById('cartoon-network');
 const nickelodeonButton = document.getElementById('nickelodeon');
 const disneyButton = document.getElementById('disney');
 const otherButton = document.getElementById('other');
 
+logoHome.addEventListener('click', () => returnToLeaderboard())
 cnButton.addEventListener('click', () => filterToonsByNetwork("Cartoon Network"));
 nickelodeonButton.addEventListener('click', () => filterToonsByNetwork("Nickelodeon"));
 disneyButton.addEventListener('click', () => filterToonsByNetwork("Disney"));
 otherButton.addEventListener('click', () => filterToonsByNetwork("Other"));
+
+function returnToLeaderboard(likes) {
+  const toonCollection = document.getElementById('toon-collection');
+  toonCollection.innerHTML = ''; // Clear existing toon cards
+
+  fetch(toonDB)
+  .then(r => r.json())
+  .then(toons => {
+    // Sort toons in descending order based on likes
+    toons.sort((a, b) => b.likes - a.likes);
+
+    // Select the top 3 toons
+    const top3Toons = toons.slice(0, 3);
+
+    // Render leaderboard cards for the top 3 toons
+    top3Toons.forEach(toon => renderCard(toon));
+    console.log(top3Toons)    
+  });  
+};
 
 function filterToonsByNetwork(network) {
   const toonCollection = document.getElementById('toon-collection');
@@ -119,22 +145,4 @@ function filterToonsByNetwork(network) {
       const filteredToons = toons.filter(toon => toon.network === network);
       filteredToons.forEach(toon => renderCard(toon));
     });
-}
-
-//create if/else statement to append networks to buttons
-
-
-// function buttons()
-//   const toonHead = document.querySelector('#toon-header')
-//   const cartoonNetwork = document.createElement('button', "img")
-//   cartoonNetwork.textContent = "Cartoon Network"
-//   const nickelodeon = document.createElement('button', "img")
-//   nickelodeon.textContent = "Nickelodeon"
-//   const disney = document.createElement('button', "img")
-//   disney.textContent = "Disney"
-//   const networks = document.createElement('div')
-//   // const allToons = [cartoonNetwork,nickelodeon,disney]
-//   networks.append(cartoonNetwork,nickelodeon,disney)
-//   toonHead.appendChild(networks)
-// }
-// buttons()
+};
