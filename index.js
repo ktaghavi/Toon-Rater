@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector("#new-toon-btn");
   const toonFormContainer = document.querySelector(".container");
   addBtn.addEventListener("click", () => {
+  const createToonBtn = document.getElementById("submitBtn")
+    // createToonBtn.disabled = true
     // hide & seek with the form
     addToon = !addToon;
     if (addToon) {
@@ -20,24 +22,26 @@ document.addEventListener("DOMContentLoaded", () => {
       const newNetwork = e.target.network.value
     
       //The POST Req.
+      if (newName !== '' && newImg !== ''){
+        fetch(toonDB, {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json"
+            },
+          body: JSON.stringify({
+              "title": newName,
+              "network": newNetwork,
+              "image": newImg,
+              "likes": 0
+            })
+        })
+        //Render Card Right after Post Req by running the new json data
+        .then (r => r.json())
+        .then (toon => renderCard(toon))
+  
+      }
 
-
-      fetch(toonDB, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-          },
-        body: JSON.stringify({
-            "title": newName,
-            "network": newNetwork,
-            "image": newImg,
-            "likes": 0
-          })
-      })
-      //Render Card Right after Post Req by running the new json data
-      .then (r => r.json())
-      .then (toon => renderCard(toon))
     
     })
     } else {

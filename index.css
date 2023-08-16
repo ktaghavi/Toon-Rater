@@ -127,3 +127,7 @@ body {
     max-width: 15vw;
     max-height: 15vh;
   }
+
+  .collection {
+    text-align: center;
+  }
