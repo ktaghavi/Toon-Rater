@@ -20,9 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const newName = e.target.name.value
       const newImg = e.target.image.value
       const newNetwork = e.target.network.value
+      document.querySelector('.add-toon-form').reset() 
     
       //The POST Req.
-      if (newName !== '' && newImg !== ''){
         fetch(toonDB, {
           method: "POST",
           headers: {
@@ -38,13 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         //Render Card Right after Post Req by running the new json data
         .then (r => r.json())  
-      };
-
-    
-    })
-    } else {
-      toonFormContainer.style.display = "none";
-    }
+      })};
+    });
   });
 
     //Add Leaderboard (Top 3 Toons!)
@@ -61,7 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
     top3Toons.forEach(toon => renderCard(toon));
     console.log(top3Toons)    
   });
-});
 
 //Make Card for Each Toy
 
@@ -75,12 +69,15 @@ function renderCard (toon){
   img.src = toon['image']
   img.className = 'cardImg'
   const likeCount = document.createElement('p')
-  likeCount.textContent = toon['likes']
+  likeCount.textContent = "Total Votes  " + toon['likes']
   const likesButton = document.createElement('button')
-  likesButton.textContent = "Vote"
+  likesButton.textContent = "+"
   likesButton.className = 'like-btn'
   likesButton.id = toon['likes']
-  cardDiv.append (toonName, img, likeCount, likesButton)
+  const dislikeButton = document.createElement('button')
+  dislikeButton.textContent = "-"
+  dislikeButton.className = 'dislike-btn'
+  cardDiv.append (toonName, img, likeCount, likesButton, dislikeButton)
   toonCollection.append (cardDiv)
   const networkLabel = document.createElement('p');
   networkLabel.textContent = `Network: ${toon.network}`
@@ -100,11 +97,26 @@ function renderCard (toon){
       //Render Card Right after Post Req by running the new json data
 
       .then (r => r.json())
-      .then (likeCount.textContent = toon['likes'])
+      .then (likeCount.textContent = "Total Votes  " + toon['likes'])
       
     })
     
-
+    dislikeButton.addEventListener('click', () =>{
+      toon['likes'] = toon['likes'] -1
+      fetch(`http://localhost:3000/toons/${toon.id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+        body: JSON.stringify(toon)
+        })
+        //Render Card Right after Post Req by running the new json data
+  
+        .then (r => r.json())
+        .then (likeCount.textContent = "Total Votes  " + toon['likes'])
+        
+      })
 }
 const logoHome = document.getElementById('logo')
 const cnButton = document.getElementById('cartoon-network');

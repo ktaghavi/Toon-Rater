@@ -104,6 +104,9 @@ body {
     border-radius: 12px;
   }
 
+  #logo:hover {
+    border-color: whitesmoke;}
+
   .cardImg {
     display: block;
     margin-left: auto;
