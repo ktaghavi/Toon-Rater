@@ -37,10 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
             })
         })
         //Render Card Right after Post Req by running the new json data
-        .then (r => r.json())
-        .then (toon => renderCard(toon))
-  
-      }
+        .then (r => r.json())  
+      };
 
     
     })
