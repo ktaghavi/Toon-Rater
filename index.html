@@ -6,7 +6,7 @@
   </head>
   <body>
     <div id="toon-header">
-      <img id="logo" class="logo1"
+      <img id="logo"
         src="img/2.png"
         alt="toon-header"
       />
@@ -26,7 +26,7 @@
 
     <div class="container">
       <form class="add-toon-form">
-        <h3>Add your favorite cartoon!</h3>
+        <h2 id="addToonText">Add yo' favorite TOON!</h2>
         
         <input
           type="text"
@@ -34,6 +34,7 @@
           value=""
           placeholder="Enter a cartoon name..."
           class="input-text"
+          required
         />
         <br />
         <input
@@ -42,6 +43,7 @@
           value=""
           placeholder="Enter the cartoon's image URL..."
           class="input-text"
+          required
         />
         <select name="network">
           <option>Cartoon Network</option>
@@ -51,9 +53,10 @@
         </select>
         <br />
         <input
+          id="submitBtn"
           type="submit"
           name="submit"
-          value="Create Toon"
+          value="Add"
           class="submit"
         />
       </form>
@@ -62,7 +65,7 @@
        Upload yo' <button id="new-toon-btn">TOON!</button>
     </p>
 
-    <div id="toon-collection"></div>
+    <div id="toon-collection" class="collection"></div>
     <script type="text/javascript" src="index.js"></script>
   </body>
 </html>

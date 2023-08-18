@@ -6,18 +6,13 @@ body {
   #toon-header {
     display: flex;
     justify-content: center;
-    background: #515DA2;
-    opacity: .8;
-    height: 7rem;
+    background: #22b6e4;
+    opacity: .9;
+    height: 15rem;
     padding: 1rem;
   }
   
-  /* #toon-header img {
-    height: 6rem;
-    width: auto;
-  } */
-  
-  #toy-collection {
+  #toon-collection {
     margin: 2rem;
   }
   
@@ -29,10 +24,10 @@ body {
     height: 25rem;
     display: inline-grid;
     margin: 1rem 2rem;
-    box-shadow: 3px 4px #e04b52
+    box-shadow: 3px 4px #5271FF
   }
   
-  .toy-avatar {
+  .toon-avatar {
     justify-self: center;
     height: 12rem;
     width: auto;
@@ -40,7 +35,7 @@ body {
   
   button {
     position: relative;
-    background-color: #e04b52;
+    background-color: #5271FF;
     border: none;
     border-radius: 5px;
     height: 3rem;
@@ -52,8 +47,8 @@ body {
   
   button:hover {
     background-color: whitesmoke;
-    border: #e04b52 solid 1px;
-    color: #e04b52;
+    border: #5271FF solid 1px;
+    color: #5271FF;
   }
   
   .container {
@@ -61,17 +56,17 @@ body {
     width: stretch;
     height: auto;
     display: none;
-    background: #515DA2;
-    opacity: .8;
+    background: #22b6e4;
+    opacity: .9;
   }
   
-  .add-toy-form {
+  .add-toon-form {
     width: 80%
   }
   
   .submit {
     position: relative;
-    background-color: #e04b52;
+    background-color: #5271FF;
     border-radius: 5px;
     height: 2rem;
     width: max-content;
@@ -84,8 +79,8 @@ body {
   
   .submit:hover {
     background-color: whitesmoke;
-    border: #e04b52 solid 1px;
-    color: #e04b52;
+    border: #5271FF solid 1px;
+    color: #5271FF;
   }
   
   
@@ -98,21 +93,26 @@ body {
     margin: 3px;
   }  
 
-  .logo1{
-    display: block;
+  #logo{
+    display: flex;
     margin-left: auto;
     margin-right: auto;
-    width: 12vw;
-    height: auto;
-    border-radius: 50px;
+    width: 210px;
+    height: 210px;
+    border: solid;
+    border-color: black;
+    border-radius: 12px;
   }
+
+  #logo:hover {
+    border-color: whitesmoke;}
 
   .cardImg {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 75%;
-    height: 75%
+    width: 150px;
+    height: 150px
   }
 
   .network-buttons{
@@ -126,4 +126,12 @@ body {
   .network-buttons img {
     max-width: 15vw;
     max-height: 15vh;
+  }
+
+  .collection {
+    text-align: center;
+  }
+
+  #addToonText{
+    color: whitesmoke
   }
