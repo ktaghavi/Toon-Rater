@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector("#new-toon-btn");
   const toonFormContainer = document.querySelector(".container");
   addBtn.addEventListener("click", () => {
-  const createToonBtn = document.getElementById("submitBtn")
-    // createToonBtn.disabled = true
+  // const createToonBtn = document.getElementById("submitBtn")
+  //   createToonBtn.disabled = true
     // hide & seek with the form
     addToon = !addToon;
     if (addToon) {
@@ -38,9 +38,13 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         //Render Card Right after Post Req by running the new json data
         .then (r => r.json())  
-      })};
+      })
+    } else {
+      toonFormContainer.style.display = "none";
+      }
     });
-  });
+    });
+  
 
     //Add Leaderboard (Top 3 Toons!)
   fetch(toonDB)
