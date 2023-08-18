@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  font-family: monospace;
+}
+
+#toon-header {
+  opacity: .9;
+  background: #22b6e4;
+  justify-content: center;
+  height: 15rem;
+  padding: 1rem;
+  display: flex;
+}
+
+#toon-collection {
+  margin: 2rem;
+}
+
+.card {
+  text-align: center;
+  border: 1px solid gray;
+  width: 15rem;
+  height: 25rem;
+  margin: 1rem 2rem;
+  padding: 1rem;
+  display: inline-grid;
+  box-shadow: 3px 4px #5271ff;
+}
+
+.toon-avatar {
+  justify-self: center;
+  width: auto;
+  height: 12rem;
+}
+
+button {
+  color: #f5f5f5;
+  background-color: #5271ff;
+  border: none;
+  border-radius: 5px;
+  justify-self: center;
+  width: max-content;
+  height: 3rem;
+  font-size: 18px;
+  position: relative;
+}
+
+button:hover {
+  color: #5271ff;
+  background-color: #f5f5f5;
+  border: 1px solid #5271ff;
+}
+
+.container {
+  opacity: .9;
+  background: #22b6e4;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
+  height: auto;
+  padding: 1rem;
+  display: none;
+}
+
+.add-toon-form {
+  width: 80%;
+}
+
+.submit {
+  color: #f5f5f5;
+  background-color: #5271ff;
+  border-radius: 5px;
+  justify-self: center;
+  width: max-content;
+  height: 2rem;
+  margin: 3px;
+  font-family: monospace;
+  font-size: 18px;
+  position: relative;
+}
+
+.submit:hover {
+  color: #5271ff;
+  background-color: #f5f5f5;
+  border: 1px solid #5271ff;
+}
+
+.input-text {
+  border-radius: 5px;
+  width: 60%;
+  height: 2rem;
+  margin: 3px;
+  font-family: monospace;
+  font-size: 18px;
+}
+
+#logo {
+  border: solid #000;
+  border-radius: 12px;
+  width: 210px;
+  height: 210px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+#logo:hover {
+  border-color: #f5f5f5;
+}
+
+.cardImg {
+  width: 150px;
+  height: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.network-buttons {
+  width: auto;
+  height: auto;
+  margin: auto;
+  padding: auto;
+  display: block;
+}
+
+.network-buttons img {
+  max-width: 15vw;
+  max-height: 15vh;
+}
+
+.collection {
+  text-align: center;
+}
+
+#addToonText {
+  color: #f5f5f5;
+}
+
+/*# sourceMappingURL=index.61d3354a.css.map */
