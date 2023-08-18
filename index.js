@@ -97,7 +97,7 @@ function renderCard (toon){
       //Render Card Right after Post Req by running the new json data
 
       .then (r => r.json())
-      .then (likeCount.textContent = "Total Votes  " + toon['likes'])
+      .then (likeCount.textContent = "Total Votes:  " + toon['likes'])
       
     })
     
@@ -114,7 +114,7 @@ function renderCard (toon){
         //Render Card Right after Post Req by running the new json data
   
         .then (r => r.json())
-        .then (likeCount.textContent = "Total Votes  " + toon['likes'])
+        .then (likeCount.textContent = "Total Votes:  " + toon['likes'])
         
       })
 }
