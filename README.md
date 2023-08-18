@@ -4,9 +4,10 @@
 
 - [Introduction](#introduction)
 - [Features](#features)
-- [Getting Started](#getting-started)
+- [Getting-Started](#getting-started)
   - [Installation-Setup](#installation-setup)
   - [Contact](#contact)
+
 ## Introduction
 
 Welcome to Toon-Rater! Here you can vote for your favorite toons,upload more toons, and view the most popular toons with the leader board!
@@ -27,7 +28,7 @@ Toon-Rater's key features include:
 
 
 
-## Getting Started
+## Getting-Started
 
 -Open the index.html file to view the site in your browser.
 
