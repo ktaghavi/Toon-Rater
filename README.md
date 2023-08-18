@@ -1,12 +1,16 @@
 # Toon-Rater
 
+
 ## Table of Contents
 
 - [Introduction](#introduction)
 - [Features](#features)
-- [Getting-Started](#getting-started)
-  - [Installation-Setup](#installation-setup)
-  - [Contact](#contact)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
 ## Introduction
 
@@ -15,7 +19,6 @@ Welcome to Toon-Rater! Here you can vote for your favorite toons,upload more too
 ## Features
 
 Toon-Rater's key features include: 
-
 -Cards that display toons from mutiple networks.
 
 -Vote buttons for each toon that allow you to add, or subtract votes.
@@ -24,11 +27,11 @@ Toon-Rater's key features include:
 
 -View a leader-board that allows you to view the 3 toons with the most votes from all networks in real time.
 
--Create your own toon with the drop down submission form that allows you to upload your own toon, and assign it to the correct network with the network selector!
+-Create your own toon with our drop down submission form that allows you to upload your own toon, and assign it to the correct network with the network selector!
 
 
 
-## Getting-Started
+## Getting Started
 
 -Open the index.html file to view the site in your browser.
 
@@ -38,13 +41,15 @@ Toon-Rater's key features include:
 
 -Add your own toon by following the instructions provided in the upload section.
 
-### Installation-Setup
+### Installation/Setup
+```bash
 
-- git clone ktaghavi/Toon-Rater.git
+-git clone ktaghavi/Toon-Rater.git
 
 - Run `json-server --watch db.json` to get the backend started
 
 - Open the `index.html` file on your browser
+
 
 ### Contact
 -Email:Terencehughes450@gmail.com
