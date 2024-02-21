@@ -81,7 +81,13 @@ function renderCard (toon){
   const dislikeButton = document.createElement('button')
   dislikeButton.textContent = "-"
   dislikeButton.className = 'dislike-btn'
-  cardDiv.append (toonName, img, likeCount, likesButton, dislikeButton)
+  const buttonGroup = document.createElement('div');
+  buttonGroup.className = 'button-group';
+  buttonGroup.append(likesButton, dislikeButton);
+  const deleteButton = document.createElement('button')
+  deleteButton.textContent = "Delete"
+  deleteButton.className = 'delete-btn'
+  cardDiv.append (toonName, img, likeCount, buttonGroup, deleteButton)
   toonCollection.append (cardDiv)
   const networkLabel = document.createElement('p');
   networkLabel.textContent = `Network: ${toon.network}`
@@ -121,6 +127,19 @@ function renderCard (toon){
         .then (likeCount.textContent = "Total Votes:  " + toon['likes'])
         
       })
+
+//Adding Delete button
+      deleteButton.addEventListener('click', () =>{
+        fetch(`http://localhost:3000/toons/${toon.id}`, {
+    method: 'DELETE'
+  })
+  .then(response => {
+    if (response.ok) {
+      cardDiv.remove();
+    }
+  })
+  .catch(error => console.error('Error:', error));
+});
 }
 const logoHome = document.getElementById('logo')
 const cnButton = document.getElementById('cartoon-network');

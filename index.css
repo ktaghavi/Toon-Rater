@@ -34,21 +34,36 @@ body {
   }
   
   button {
-    position: relative;
+    display: inline-block; /* Ensure buttons can sit side-by-side */
     background-color: #5271FF;
     border: none;
     border-radius: 5px;
     height: 3rem;
-    width: max-content;
+    padding: 0 1rem; /* Use padding to ensure buttons have content width */
     color: whitesmoke;
     font-size: 18px;
-    justify-self: center;
+    cursor: pointer; /* Visual cue that they are clickable */
+  }
+
+  .delete-btn {
+    background-color: #ff4141; /* Red background */
+    color: whitesmoke;
+    width: 50%; /* Make it fill its container */
+    margin-top: 0.5rem; /* Space from the like/dislike buttons */
+    margin-left: auto; /* Center the button horizontally */
+    margin-right: auto; /* Center the button horizontally */
   }
   
   button:hover {
     background-color: whitesmoke;
     border: #5271FF solid 1px;
     color: #5271FF;
+  }
+
+  .delete-btn:hover {
+    background-color: whitesmoke;
+    color: #ff4141;
+    border: #ff4141 solid 1px;
   }
   
   .container {
@@ -83,6 +98,22 @@ body {
     color: #5271FF;
   }
   
+  .like-btn:hover, .dislike-btn:hover {
+    background-color: whitesmoke;
+    border: #5271FF solid 1px;
+    color: #5271FF;
+  }
+  
+  /* Ensure buttons are aligned nicely */
+  .card div.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between buttons */
+  }
+  
+  .card div.button-group + .delete-btn {
+    display: block; /* Ensure delete button is a block to respect width */
+  }
   
   .input-text {
     border-radius: 5px;
