@@ -1,5 +1,4 @@
-# Toon-Rater
-
+ # Toon-Rater
 
 ## Table of Contents
 
